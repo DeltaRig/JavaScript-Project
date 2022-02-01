@@ -1,0 +1,20 @@
+{
+  "name": "team_budget_planner",
+  "version": "1.0.0",
+  "description": "Phase 3 - .Net Full Stack Developer: Understanding the World of Javascript - Simplilearn",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/DeltaRig/JavaScript-Project",
+    "type": "git"
+  },
+  "author": "Daniela Rigoli",
+  "devDependencies": {
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "scripts": { 
+	"build": "webpack",
+    "mode": "development"
+    } 
+}
