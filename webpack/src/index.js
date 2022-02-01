@@ -1,12 +1,6 @@
 "use strict";
 
 var tools = require("./calculate.js");  
- 
-var value = tools.sum(10,20);  
- 
-console.log("Value: "+value); 
-
-
 
 var costByPerson = 50;
 
@@ -32,7 +26,7 @@ function allCost(team, callback) {
     var cost = 0;
     for (var i = 0; i < team.length; i++) {
         console.log(team[i]) 
-        cost += team[i].calculateCost(); 
+        cost = tools.sum(cost, team[i].calculateCost()); 
     }
     cost += multi(team.length)(costByPerson)
     return callback(cost); //Callback
