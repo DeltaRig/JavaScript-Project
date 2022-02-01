@@ -14,15 +14,30 @@ Employee.prototype.calculateCost = function(){
 } 
 console.log(Employee.prototype); 
 
-function allCost(team) {
+function allCost(team, callback) {
     var cost = 0;
     for (var i = 0; i < team.length; i++) {
         console.log(team[i]) 
         cost += team[i].calculateCost(); 
     }
-    return cost;
+    return callback(cost); //Callback
 }
 
+//IIFE and Closure
+const projectId = (function() {
+    let count = 0;
+    return function() {
+      ++count;
+      return `${count}`;
+    };
+})();
+
+// var that is a function
+var taxes = function(price){
+    return price * 1.3;
+}
+
+console.log("Project " + projectId());
 
 // creating Objects
 let Emp1= new Employee(1, 4);
@@ -33,5 +48,7 @@ let Emp3= new Employee(3, 10);
 
 var team = [Emp1, Emp2, Emp3]; //Array
 
-var allCost = allCost(team);
+var allCost = allCost(team, taxes);
 console.log("Cost with all team: " + allCost);
+
+console.log("Project " + projectId());
