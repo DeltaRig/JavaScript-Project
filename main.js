@@ -1,4 +1,6 @@
 "use strict";
+var costByPerson = 50;
+
 // function constructor 
 function Employee(experience, skills){   
     this.experience= experience; 
@@ -14,12 +16,16 @@ Employee.prototype.calculateCost = function(){
 } 
 console.log(Employee.prototype); 
 
+//Funtions returning Functions
+const multi = (integer) => (anotherInteger) => integer * anotherInteger;
+
 function allCost(team, callback) {
     var cost = 0;
     for (var i = 0; i < team.length; i++) {
         console.log(team[i]) 
         cost += team[i].calculateCost(); 
     }
+    cost += multi(team.length)(costByPerson)
     return callback(cost); //Callback
 }
 
@@ -34,7 +40,7 @@ const projectId = (function() {
 
 // var that is a function
 var taxes = function(price){
-    return price * 1.3;
+    return price * 1.3; //Function as an argument
 }
 
 console.log("Project " + projectId());
